@@ -11,30 +11,36 @@
 </head>
 
 <body>
+
     <header id="header"> Tower of Hanoi</header>
-    <nav id="nav"> Menú</nav>
-    <main id="main">Main
-        <div class="hanoi-towers">
-            <div class="discus">discus 1</div>
-            <div class="discus">discus 2</div>
-            <div class="discus">discus 3</div>
-            <div class="discus">discus 4</div>
+    <form>
+        <nav id="nav"> Nav
+            <input id="reset-button" type="button" value="Reset game">
+        </nav>
 
-            <div id="towerA" class="tower-item">A</div>
-            <div id="towerB" class="tower-item">B</div>
-            <div id="towerC" class="tower-item">C</div>
+        <main id="main">Main
+            <div class="hanoi-towers">
+                <!-- <div class="disks">discus 1</div>
+                <div class="disks">discus 2</div>
+                <div class="disks">discus 3</div>
+                <div class="disks">discus 4</div> -->
+                <div id="towers">
+                    <div id="towerA" class="tower-item">A</div>
+                    <div id="towerB" class="tower-item">B</div>
+                    <div id="towerC" class="tower-item">C</div>
+                </div>
+                <div id="base"></div>
 
-            <div class="main-table"></div>
+            </div>
+        </main>
+        <aside id="aside">
+            <section class="game-board"> section
 
-        </div>
-    </main>
-    <aside id="aside">
-        <section class="game-board"> section
-
-        </section>
-    </aside>
-    <footer id="footer">footer</footer>
-    <script src="js/main.js"></script>
+            </section>
+        </aside>
+        <footer id="footer">footer</footer>
+        <script src="js/main.js"></script>
+    </form>
 </body>
 
 </html>
