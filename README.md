@@ -24,12 +24,15 @@ The initial state (a), an intermediate state (b), and the final state (c) for a 
 ![](https://github.com/gcruz16/tower-of-hanoi/blob/master/img/hanoi_example3.png)
 
 
+## Wireframe
+![](https://github.com/gcruz16/tower-of-hanoi/blob/master/img/Wireframe_Tower-of-hanoi.png)
+
 
 ## List of Features / User Stories
 * As a user I need to have a game board so I can know score. 
-* As a user you are able to reset the game to start again.
+* As a user I want to reset the game anytime.
 * As a user I want to see general instructions so I know how can I play the game.
-
+* As a user I would like to see the moves so I can apply few movements.
 
 ## Technologies used
 * **Visual Studio Code:** used for coding with HTML-5, CSS and Javascript
