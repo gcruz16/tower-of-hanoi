@@ -19,9 +19,9 @@ Objective is to move the entire stack to another rod .
 
 The initial state (a), an intermediate state (b), and the final state (c) for a set of 6 disks are showing in the following figures:
 
-![](https://github.com/gcruz16/tower-of-hanoi/blob/master/img/hanoi_example.png)
-![](https://github.com/gcruz16/tower-of-hanoi/blob/master/img/hanoi_example2.png)
-![](https://github.com/gcruz16/tower-of-hanoi/blob/master/img/hanoi_example3.png)
+![(a)](https://github.com/gcruz16/tower-of-hanoi/blob/master/img/hanoi_example.png)..
+![(b)](https://github.com/gcruz16/tower-of-hanoi/blob/master/img/hanoi_example2.png)..
+![(c)](https://github.com/gcruz16/tower-of-hanoi/blob/master/img/hanoi_example3.png)..
 
 
 ## Wireframe
