@@ -178,9 +178,11 @@ form {
     border: 3px solid greenyellow;
     height: 600px;
     width:25%;
-    justify-content: flex-end;
-    align-self: flex-end;
-    align-content: flex-end;
+    display:flex;
+    flex-flow: column wrap;
+    justify-content:center;
+    align-self: center;
+    align-content:center;
 }
 
 .game-board{
