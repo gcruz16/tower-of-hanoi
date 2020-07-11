@@ -91,17 +91,15 @@ form {
     border-radius: 15px;
     border-style:inset;
  
-
 }
 
-
 .hanoi-towers{
-    border: 3px solid blue;
+    /* border: 3px solid blue; */
     padding: 10;
     position:relative;
     top: 40px;
     left: 10px;
-     height: 350px;
+    height: 350px;
     width:80%; 
     display:flex;
     flex-wrap: wrap;
@@ -112,33 +110,50 @@ form {
     align-content:center;
     flex-direction:  row;
 }
-#disks{
-    border: 2px solid green;
-    width:100%;
- 
-    position: relative;
+ #disks-towers{
+    /* border: 4px solid purple; */
+    margin: 0 auto;
+    
     display: flex;
     flex-flow: column wrap;
-    align-content: space-between;
-    justify-content: space-between;
-    align-items:center;
-    align-self: center;
-    align-content:center;
+
+} 
+
+#div-disks{
+   border: 4px solid white;
+   width:95%;
+   height: 100px;
+
+   position: relative;
+   top:342px; 
+
+   display:flex;
+   flex-direction: row;
+   justify-content: center;
+   align-content:center;
+   align-items:center;
+}
+ .disks{
+    border: 2px solid green;
+    height: 80px;
+    width:30%;
+
+    display: flex;
+    flex-flow: column wrap;
+    justify-content: center;
+    align-content: center; /*modify when moving disks between rods */
 }
 .disk-item{
-    background-color: red;
     position: relative;
-    width: 80px;
     height: 10px;
     background-color: #666;
     border-radius: 75px / 5px;
 
 }
 #towers{
-    border: 1px solid red;
+    /* border: 4px solid pink; */
     width: 700px;
     display:flex;
-    align-content: space-around;
     justify-content: space-around;
 
 }
@@ -160,5 +175,24 @@ form {
     border-radius: 1px; 
     border-style:inset;  
     border-color: grey;
+
+}
+
+
+
+#disk1{
+    width: 50px;
+
+}
+#disk2{
+    width: 60px;
+
+}
+#disk3{
+    width: 70px;
+
+}
+#disk4{
+    width: 80px;
 
 }
