@@ -77,12 +77,12 @@ form {
 }
 
 .tower-item{
-    border: 2px solid yellow;
+    /* border: 2px solid yellow; */
     background-color:#e2ddd9;
     height: 250px;
-    width:10px;
+    width:11px;
     border-radius: 15px;
-    border-style:inset;
+    border-style:groove;
  
 }
 #div-disks{
@@ -141,8 +141,6 @@ form {
     background-color:red;
     position: relative;
     left: 60px;
-
-
 }
 #disk2{
     width: 70px;
@@ -188,10 +186,17 @@ form {
 .game-board{
 
 } 
+#instructions{
+    font-size: 13px;
+    font-family: 'Montserrat';
+    display: flex;
+    align-content: flex-start;
+
+}
 
 #footer {
     font-size: 20px;
-    font-family: 'Acme';
+    font-family: 'Montserrat';
     border: 3px solid greenyellow;
     height: 200px;
     width:100%;
