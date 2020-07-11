@@ -22,7 +22,7 @@ form {
 #nav {
     font-size: 20px;
     font-family: 'Acme';
-    border: 3px solid greenyellow;
+    border: 5px solid greenyellow;
     height: 600px;
     width:25%;
     display:flex;
@@ -32,7 +32,7 @@ form {
 } 
 
 #main {
-    border: 3px solid greenyellow;
+    border: 5px solid greenyellow;
     font-size: 20px;
     font-family: 'Acme';
     
@@ -175,7 +175,7 @@ form {
 #aside {
     font-size: 20px;
     font-family: 'Acme';
-    border: 3px solid greenyellow;
+    border: 5px solid greenyellow;
     height: 600px;
     width:25%;
     display:flex;
@@ -199,7 +199,7 @@ form {
 #footer {
     font-size: 20px;
     font-family: 'Montserrat';
-    border: 3px solid greenyellow;
+    border: 5px solid greenyellow;
     height: 200px;
     width:100%;
     justify-content: flex-end;
