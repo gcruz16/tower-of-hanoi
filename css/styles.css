@@ -19,7 +19,6 @@ form {
     justify-content: center;
     align-content: center;    
 }
-
 #nav {
     font-size: 20px;
     font-family: 'Acme';
@@ -29,86 +28,34 @@ form {
     display:flex;
     flex-flow: column wrap;
     justify-content: center;
-    align-self: center;
     align-content: center;
 } 
 
-#reset-button{
-    height:50px;
-    width: 200px;
-    border-style: groove;
-    border-radius: 15px;
-    background-color:#8f9897 ;
-    font-size: 22px;
-    font-family: 'Acme';
-}
 #main {
+    border: 3px solid greenyellow;
     font-size: 20px;
     font-family: 'Acme';
-    border: 3px solid greenyellow;
+    
     height: 600px;
     width:48%;
     display:flex;
-    justify-content: center;
-    align-self: center;
-    align-content: center;
     flex-flow: row wrap; 
-}
+    justify-content: center;
+    align-content: flex-start;
 
-#aside {
-    font-size: 20px;
-    font-family: 'Acme';
-    border: 3px solid greenyellow;
-    height: 600px;
-    width:25%;
-    justify-content: flex-end;
-    align-self: flex-end;
-    align-content: flex-end;
-}
-
-
-#footer {
-    font-size: 20px;
-    font-family: 'Acme';
-    border: 3px solid greenyellow;
-    height: 200px;
-    width:100%;
-    justify-content: flex-end;
-    align-self: flex-end;
-    align-content: flex-end;
-}
-
-.game-board{
-
-} 
-
-
-.tower-item{
-    border: 2px solid yellow;
-    background-color:#e2ddd9;
-    height: 300px;
-    width:10px;
-    border-radius: 15px;
-    border-style:inset;
- 
 }
 
 .hanoi-towers{
-    /* border: 3px solid blue; */
-    padding: 10;
-    position:relative;
-    top: 40px;
+    /* border: 3px solid blue;  */
+
     left: 10px;
     height: 350px;
     width:80%; 
     display:flex;
-    flex-wrap: wrap;
-    align-content: space-between;
-    justify-content: space-between;
-    align-items:center;
-    align-self: center;
-    align-content:center;
-    flex-direction:  row;
+    flex-flow: row wrap;
+    align-items:flex-start;
+    justify-content: flex-start;
+    align-content:center; 
 }
  #disks-towers{
     /* border: 4px solid purple; */
@@ -118,25 +65,44 @@ form {
     flex-flow: column wrap;
 
 } 
+#towers{
+    /* border: 4px solid pink;  */
+    width: 600px;
+    position: relative;
+    top:120px; 
+    display:flex;
+    justify-content: space-around;
+    align-self: center;
 
+}
+
+.tower-item{
+    border: 2px solid yellow;
+    background-color:#e2ddd9;
+    height: 250px;
+    width:10px;
+    border-radius: 15px;
+    border-style:inset;
+ 
+}
 #div-disks{
-   border: 4px solid white;
-   width:95%;
+   /* border: 4px solid white; */
+   width:100%;
    height: 100px;
 
    position: relative;
-   top:342px; 
+   top:42px; 
 
    display:flex;
    flex-direction: row;
-   justify-content: center;
+   justify-content: space-around;
    align-content:center;
    align-items:center;
 }
  .disks{
-    border: 2px solid green;
+    /* border: 2px solid green; */
     height: 80px;
-    width:30%;
+    width:27%;
 
     display: flex;
     flex-flow: column wrap;
@@ -145,24 +111,17 @@ form {
 }
 .disk-item{
     position: relative;
-    height: 10px;
-    background-color: #666;
-    border-radius: 75px / 5px;
+    height: 20px;
+    border-radius: 190px / 15px;
 
 }
-#towers{
-    /* border: 4px solid pink; */
-    width: 700px;
-    display:flex;
-    justify-content: space-around;
 
-}
+
 #base{
     /* border: 3px solid red; */
     height: 50px;
     width:100%;
     
-
     display:flex;
     flex-direction: column;
     align-content: center;  
@@ -177,22 +136,66 @@ form {
     border-color: grey;
 
 }
-
-
-
 #disk1{
-    width: 50px;
+    width: 30px;
+    background-color:red;
+    position: relative;
+    left: 60px;
+
 
 }
 #disk2{
-    width: 60px;
+    width: 70px;
+    background-color:yellow;
+    position: relative;
+    left: 40px;
 
 }
 #disk3{
-    width: 70px;
+    width: 110px;
+    background-color:blue;
+    position: relative;
+    left: 20px;
 
 }
 #disk4{
-    width: 80px;
+    width: 150px;
+    background-color:purple;
 
+}
+
+#reset-button{
+    height:50px;
+    width: 200px;
+    border-style: groove;
+    border-radius: 15px;
+    background-color:#8f9897 ;
+    font-size: 22px;
+    font-family: 'Acme';
+}
+
+#aside {
+    font-size: 20px;
+    font-family: 'Acme';
+    border: 3px solid greenyellow;
+    height: 600px;
+    width:25%;
+    justify-content: flex-end;
+    align-self: flex-end;
+    align-content: flex-end;
+}
+
+.game-board{
+
+} 
+
+#footer {
+    font-size: 20px;
+    font-family: 'Acme';
+    border: 3px solid greenyellow;
+    height: 200px;
+    width:100%;
+    justify-content: flex-end;
+    align-self: flex-end;
+    align-content: flex-end;
 }
