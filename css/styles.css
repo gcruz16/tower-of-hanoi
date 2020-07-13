@@ -139,7 +139,7 @@ form {
     height: 300px;
     width:50%;
     position: relative;
-    bottom:200px; 
+    bottom:-45px; 
     display: flex;
     flex-flow: column wrap;
     justify-content: flex-end;
