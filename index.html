@@ -14,9 +14,20 @@
 <body>
 
     <header id="header"> Tower of Hanoi</header>
-    <form>
+    <form id="mainForm">
         <nav id="nav">
+            <section>
+                <label for="Level">Choose a level:</label>
+                <select id="levels" name="levels">
+                    <option value="easy">Easy</option>
+                    <option value="normal">Normal</option>
+                    <option value="hard">Hard</option>
+                </select>
+            </section>
+            <input id="start-button" type="button" value="Start game">
             <input id="reset-button" type="button" value="Reset game">
+
+
         </nav>
 
         <main id="main">
@@ -29,10 +40,7 @@
                     </div>
                     <disks id="div-disks">
                         <div id="disks-tower-a" class="disks">
-                            <div id="disk1" class="disk-item"></div>
-                            <div id="disk2" class="disk-item"></div>
-                            <div id="disk3" class="disk-item"></div>
-                            <div id="disk4" class="disk-item"></div>
+
                         </div>
                         <div id="disks-tower-b" class="disks">
 
@@ -70,5 +78,8 @@
         <script src="js/main.js"></script>
     </form>
 </body>
+<!-- <div id="disk1" class="disk-item"></div>
+                                                        <div id="disk2" class="disk-item"></div>
+                                                        <div id="disk3" class="disk-item"></div> -->
 
 </html>
