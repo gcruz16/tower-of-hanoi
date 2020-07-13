@@ -5,7 +5,7 @@
     font-family: 'Bungee Inline';
     color: #55B4B0;
     border: 3px solid greenyellow;
-    height: 200px;
+    height: 130px;
     width:100%;
 
     text-align: center;
@@ -71,12 +71,17 @@ form {
     width:48%;
     display:flex;
     flex-flow: row wrap; 
-    justify-content: center;
+    justify-content: flex-start;
     align-content: flex-start;
     
 
 }
+.message{
 
+}
+#message-item{
+
+}
 .hanoi-towers{
     /* border: 3px solid blue;  */
 
@@ -100,10 +105,10 @@ form {
 } 
 #towers{
     border: 4px solid pink;   
-    width: 700px;
+    width: 750px;
     position: relative;
-    top:300px; 
-    right:40px;
+    top:250px; 
+    right:0px;
     display:flex;
     justify-content: space-around;
     align-self: center;
@@ -113,6 +118,8 @@ form {
 .tower-item{
      /*border: 2px solid yellow;  */
     background-color:#e2ddd9;
+    position: relative;
+    left:30px;
     height: 350px;
     width:11px;
     border-radius: 15px;
@@ -125,8 +132,8 @@ form {
    height: 330px;
 
    position: relative;
-   bottom:80px; 
-   right:40px;
+   bottom:100px; 
+   left:35px;
 
    display:flex;
    flex-direction: row;
@@ -139,7 +146,7 @@ form {
     height: 300px;
     width:50%;
     position: relative;
-    bottom:-45px; 
+    bottom:-5px; 
     display: flex;
     flex-flow: column wrap;
     justify-content: flex-end;
@@ -158,16 +165,18 @@ form {
     height: 50px;
     width:100%;
     position: relative;
-    bottom: 40px;
+    bottom: 100px;
     display:flex;
     flex-direction: column;
     align-content: center;  
-    align-items:center;
+    align-items:fles-end;
 }
 .base-item{
     background-color:#8B4513;
     height: 4px;
     width:120%;
+    position: relative;
+    right:-20px;
     border-radius: 1px; 
     border-style:inset;  
     border-color: grey;

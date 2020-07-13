@@ -1,5 +1,6 @@
 // console.log("scrit linked");
 
+//Variables
 let form1 = document.querySelector("#mainForm");
 let mylevels = document.querySelector("#levels");
 let level = "easy";
@@ -9,14 +10,28 @@ let moves = 0;
 let towerA = [maxNumDisks];
 let towerB = [maxNumDisks];
 let towerC = [maxNumDisks];
-let currentTower = "a"
+let currentTower = "a";
+let destTower = "a";
+let idDiskSelected = "";
+let diskSelected = "";
+let diskNumSelected = "";
+let indexA = 0;
+let indexB = 0;
+let indexC = 0;
+let divDisks = document.querySelectorAll("#disks-tower-b");
+let loadMode = true;
+
+
+let towersLabel = ["a", "b", "c"];
+let myDisksSelected = "";
+let diskarray = [];
 
 // console.log(form1);
 
 //Function to create disks based on level
-function createDisk() {
+function createDisk(tower) {
     let newdisk = "";
-    let disks = document.querySelector("#disks-tower-a");
+    let disks = document.querySelector(tower);
     let totDisk = 1;
     let i = 0;
 
@@ -55,22 +70,25 @@ function loadDisks() {
     switch (level) {
         case "easy":
             totNumDisks = 2;
+            maxNumDisks = 7;
             break;
         case "normal":
             totNumDisks = 4;
+            maxNumDisks = 7;
             break;
         case "hard":
             totNumDisks = 7;
+            maxNumDisks = 7;
             break;
 
     }
 
-    createDisk();
+    createDisk("#disks-tower-a");
     // disks = document.querySelectorAll("#disks-tower-a");
     // console.log(disks);
 }
 
-window.addEventListener('load', loadDisks);
+
 class hanoi {
     constructor(level) {
         this.level = level;
@@ -96,19 +114,12 @@ class hanoi {
 function detectLevel(event) {
     event.preventDefault;
     level = event.target.value;
+    loadMode = true;
     loadDisks();
 
 }
 // const hanoi = new hanoi(4);
 
-
-mylevels.addEventListener('change', detectLevel);
-
-
-
-let towersLabel = ["a", "b", "c"];
-let myDisksSelected = "";
-let diskarray = [];
 
 // myDisksSelected = document.querySelectorAll(`#disks-tower-${towersLabel[0]}`);
 // console.log("my disks selected" + towersLabel[0]);
@@ -118,62 +129,93 @@ let diskarray = [];
 
 // });
 
-diskarray = document.querySelectorAll(`#disks-tower-${towersLabel[0]}`);
+
 // console.log(diskarray.disk);
 
 // for (let i = 0; i < towersLabel.length; i++) {
 // diskarray = document.querySelectorAll(`#disks-tower-${towersLabel[i]}`);
 
-diskarray = document.querySelectorAll(`#disks-tower-a`);
+function moveDisk(event) {
+    event.preventDefault();
+    console.log("moving disk");
+    // //Remove disk selected from origin tower
+    maxNumDisks = diskNumSelected;
+    diskSelected.remove();
 
+    //Add child (disk selected) to destination tower selected
+    totNumDisks = 1;
+    createDisk("#disks-tower-b");
+    currentTower = "#disks-tower-b";
+}
+function displaNextStep(event) {
+    event.preventDefault();
+    console.log("Select destination tower to move disk selected");
+}
 function selectDisk(event) {
 
     event.preventDefault();
     console.log(event.target);
-    let diskNameSelected = event.target.id;
-    let diskNumSelected = parseInt(event.target.id.substr(-1));
-    let indexA = 0;
-    let indexB = 0;
-    let indexC = 0;
-    let divDisks = document.querySelector("#div-disks");
 
-
+    idDiskSelected = event.target.id;
+    diskSelected = document.querySelector(`#${idDiskSelected}`)
+    diskNumSelected = parseInt(event.target.id.substr(-1));
+    indexA = 0;
+    indexB = 0;
+    indexC = 0;
+    divDisks = document.querySelectorAll("#disks-tower-b");
+    loadMode = false;
+    // console.log(`currentTower: ${currentTower} diskNumSelected: ${diskNumSelected}`);
     switch (currentTower) {
         case "a":
             indexA = towerA.indexOf(diskNumSelected);
             indexB = -1;
             indexC = -1;
+            break;
         case "b":
             indexB = towerB.indexOf(diskNumSelected);
             indexA = -1;
             indexC = -1;
+            break;
         case "c":
             indexC = towerC.indexOf(diskNumSelected);
             indexA = -1;
             indexB = -1;
+            break;
     }
 
+    // console.log(`indexA: ${indexA}  indexB: ${indexB}  indexC: ${indexC}`);
 
     console.log(typeof (diskNumSelected));
 
 
-    console.log('posicion donde encontro fue: ' + indexA);
+    console.log('index of disk selected: ' + indexA);
     //Validate tower of disk selected and validate we are selecting upper disk from the tower
     if (((indexA !== -1) && (towerA[towerA.length - 1] === towerA[indexA])) ||
         ((indexB !== -1) && (towerB[towerB.length - 1] === towerB[indexB])) ||
         ((indexC !== -1) && (towerC[towerC.length - 1] === towerC[indexC]))) {
-        console.log(`Upper Disk: ${towerA[towerA.length - 1]}  Disk selected: ${towerA[indexA]} towerA[towerA.length]: ${towerA[towerA.length - 1]}`);
+        console.log(`Upper Disk: ${towerA[towerA.length - 1]}  Disk selected: ${towerA[indexA]} `);
 
         //Activate background color of the selected block
-        document.querySelector(`#${diskNameSelected}`).setAttribute('style', ' border-style: solid; border-color: white');
+        document.querySelector(`#${idDiskSelected}`).setAttribute('style', ' border-style: solid; border-color: white');
+        document.querySelector(`#${idDiskSelected}`).addEventListener('mouseover', displaNextStep);
     } else {
         alert("The disk you want to move is not the upper disk of the tower!");
+        idDiskSelected = 0;
     };
 
     //select tower where we want to move the disk, validate if is allow to move disk there
-    divDisks.forEach(divdisk => {
-        divdisk.addEventListener('click', moveDisk);
-    });
+    if (currentTower !== destTower) {
+        divDisks.forEach(divdisk => {
+            event.preventDefault();
+            console.log(event.target);
+            divdisk.addEventListener('click', moveDisk);
+        });
+    };
+
+    // while (currentTower !== destTower) {
+
+    // }
+
     //if we are allow then move position of disk from tower origin tower dest
 
 
@@ -190,20 +232,29 @@ function selectDisk(event) {
     // if(event.target)
 }
 
-diskarray.forEach(disk => {
-    // myDisks.tower = towersLabel[i];
-    // myDisks.disks = disk.
-    // console.log("for each");
-    // myDisks.disks = disk.
-    // console.log(disk);
-    disk.addEventListener("click", selectDisk);
 
-});
 // }
 
 
+// function hanoi() {
+//     if (idDiskSelected > 0) {
 
+//     }
+// }
+//load page
+window.addEventListener('load', loadDisks);
 
+//Create disks based on  Level
+mylevels.addEventListener('change', detectLevel);
+
+//Select a disk
+diskarray = document.querySelectorAll(`#disks-tower-a`);
+
+diskarray.forEach(disk => {
+    console.log(disk);
+    disk.addEventListener("click", selectDisk);
+
+});
 
 // // let disksArray = document.querySelectorAll(".disk-item");
 
