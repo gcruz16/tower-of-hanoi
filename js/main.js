@@ -20,6 +20,8 @@ let indexB = 0;
 let indexC = 0;
 let divDisks = document.querySelectorAll("#disks-tower-b");
 let loadMode = true;
+let message = document.querySelector("#message-item");
+
 
 
 let towersLabel = ["a", "b", "c"];
@@ -29,13 +31,14 @@ let diskarray = [];
 // console.log(form1);
 
 //Function to create disks based on level
-function createDisk(tower) {
+function createDisk() {
+    // console.log("destTower: " + destTower);
     let newdisk = "";
-    let disks = document.querySelector(tower);
+    let disks = document.querySelector(`#disks-tower-${destTower}`);
     let totDisk = 1;
     let i = 0;
 
-    // console.log(`level: ${level} i: ${i} totNumDisks: ${totNumDisks}  `);
+    // console.log(`level: ${level} i: ${i} totNumDisks: ${totNumDisks} destTower:${destTower}  `);
     while (totDisk <= totNumDisks) {
         newdisk = document.createElement("div");
         newdisk.id = `disk${maxNumDisks}`;
@@ -83,7 +86,8 @@ function loadDisks() {
 
     }
 
-    createDisk("#disks-tower-a");
+    createDisk(); //Tower a
+    message.innerHTML = "Select a level and start playing, check rules prior to move the disks..";
     // disks = document.querySelectorAll("#disks-tower-a");
     // console.log(disks);
 }
@@ -135,26 +139,13 @@ function detectLevel(event) {
 // for (let i = 0; i < towersLabel.length; i++) {
 // diskarray = document.querySelectorAll(`#disks-tower-${towersLabel[i]}`);
 
-function moveDisk(event) {
-    event.preventDefault();
-    console.log("moving disk");
-    // //Remove disk selected from origin tower
-    maxNumDisks = diskNumSelected;
-    diskSelected.remove();
 
-    //Add child (disk selected) to destination tower selected
-    totNumDisks = 1;
-    createDisk("#disks-tower-b");
-    currentTower = "#disks-tower-b";
-}
-function displaNextStep(event) {
-    event.preventDefault();
-    console.log("Select destination tower to move disk selected");
-}
+
 function selectDisk(event) {
 
     event.preventDefault();
     console.log(event.target);
+    message.innerHTML = "You have selected a disk (white border). Select destination tower, where you want to move disk selected.";
 
     idDiskSelected = event.target.id;
     diskSelected = document.querySelector(`#${idDiskSelected}`)
@@ -164,7 +155,7 @@ function selectDisk(event) {
     indexC = 0;
     divDisks = document.querySelectorAll("#disks-tower-b");
     loadMode = false;
-    // console.log(`currentTower: ${currentTower} diskNumSelected: ${diskNumSelected}`);
+    console.log(`currentTower: ${currentTower} diskNumSelected: ${diskNumSelected}`);
     switch (currentTower) {
         case "a":
             indexA = towerA.indexOf(diskNumSelected);
@@ -185,7 +176,7 @@ function selectDisk(event) {
 
     // console.log(`indexA: ${indexA}  indexB: ${indexB}  indexC: ${indexC}`);
 
-    console.log(typeof (diskNumSelected));
+    // console.log(typeof (diskNumSelected));
 
 
     console.log('index of disk selected: ' + indexA);
@@ -197,20 +188,23 @@ function selectDisk(event) {
 
         //Activate background color of the selected block
         document.querySelector(`#${idDiskSelected}`).setAttribute('style', ' border-style: solid; border-color: white');
-        document.querySelector(`#${idDiskSelected}`).addEventListener('mouseover', displaNextStep);
+        console.log("element selected!!!");
     } else {
+        message.innerHTML = "The disk you want to move is not the upper disk of the tower!";
         alert("The disk you want to move is not the upper disk of the tower!");
+
         idDiskSelected = 0;
     };
 
     //select tower where we want to move the disk, validate if is allow to move disk there
-    if (currentTower !== destTower) {
-        divDisks.forEach(divdisk => {
-            event.preventDefault();
-            console.log(event.target);
-            divdisk.addEventListener('click', moveDisk);
-        });
-    };
+
+    // if (currentTower !== destTower) {
+    //     divDisks.forEach(divdisk => {
+    //         event.preventDefault();
+    //         console.log(event.target);
+    //         divdisk.addEventListener('click', moveDisk);
+    //     });
+    // };
 
     // while (currentTower !== destTower) {
 
@@ -248,13 +242,67 @@ window.addEventListener('load', loadDisks);
 mylevels.addEventListener('change', detectLevel);
 
 //Select a disk
-diskarray = document.querySelectorAll(`#disks-tower-a`);
+// diskarray = document.querySelectorAll(`#disks-tower-a`);
 
-diskarray.forEach(disk => {
-    console.log(disk);
-    disk.addEventListener("click", selectDisk);
+// diskarray.forEach(disk => {
+//     console.log(disk);
 
-});
+//     disk.addEventListener("click", selectDisk);
+
+// });
+
+
+function moveDisk(event) {
+    event.preventDefault();
+    console.log("moving disk");
+    // //Remove disk selected from origin tower
+    maxNumDisks = diskNumSelected;
+    diskSelected.remove();
+
+    //Add child (disk selected) to destination tower selected, you can just move one disk at the time
+    totNumDisks = 1;
+    createDisk();
+}
+
+
+function validateMovement() {
+    event.preventDefault();
+    destTower = event.target.id.substr(-1);
+    console.log(destTower);
+
+    console.log(`div-tower-${destTower} selected`);
+    if (currentTower !== destTower) {
+        divDisks.forEach(divdisk => {
+            event.preventDefault();
+            console.log(event.target);
+            divdisk.addEventListener('click', moveDisk);
+        });
+    };
+
+
+
+}
+
+//Validate for each tower if we clicked one of them
+towersLabel.forEach(tower => {
+    diskarray = document.querySelectorAll(`#disks-tower-${tower}`);
+    console.log(diskarray);
+    if (diskarray) {
+        diskarray.forEach(disk => {
+            //disk selected
+            disk.addEventListener("click", selectDisk);
+            //validate movement of a disk, if is OK you can move disk
+            disk.addEventListener('click', validateMovement);
+
+        });
+    } else {
+        //Add disk to tower dest  
+
+    }
+
+})
+
+
 
 // // let disksArray = document.querySelectorAll(".disk-item");
 
