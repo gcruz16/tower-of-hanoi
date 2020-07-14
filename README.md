@@ -33,6 +33,9 @@ The initial state (a), an intermediate state (b), and the final state (c) for a 
 * As a user I want to reset the game anytime.
 * As a user I want to see general instructions so I know how can I play the game.
 * As a user I would like to see the moves so I can apply few movements.
+* As a user I want to select level so I can start to play.
+* As a user I want to see messages so I know how the game is going.
+* As a user I want to see game rules so I know what should consider to play the game.
 
 ## Technologies used
 * **Visual Studio Code:** used for coding with HTML-5, CSS and Javascript

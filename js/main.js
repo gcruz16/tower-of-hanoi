@@ -61,22 +61,19 @@ function createDisk() {
     let totDisk = 1;
     let i = 0;
 
-    console.log(`CreateDisk Function level: ${level} i: ${i} totNumDisks: ${totNumDisks} destTower:${destTower}  `);
+    // console.log(`CreateDisk Function level: ${level} i: ${i} totNumDisks: ${totNumDisks} destTower:${destTower}  `);
     while (totDisk <= totNumDisks) {
         newdisk = document.createElement("div");
         newdisk.id = `disk${maxNumDisks}`;
         newdisk.className = "disk-item";
         disks.prepend(newdisk);
         towerA[i] = parseInt(newdisk.id.substr(-1));
-        console.log("create disk-->" + parseInt(newdisk.id.substr(-1)));
-
+        // console.log("create disk-->" + parseInt(newdisk.id.substr(-1)));
         maxNumDisks--;
         totDisk++;
         i++;
     }
     maxNumDisks = 7;
-
-
 }
 
 //Main function to load disks,we need to remove existing disks when we toggle between levels and then 
@@ -142,8 +139,8 @@ class hanoi {
 
 function detectLevel(event) {
     event.preventDefault();
-    console.log("detectLevel function");
-    console.log(event.target.value);
+    // console.log("detectLevel function");
+    // console.log(event.target.value);
     level = event.target.value;
     loadDisks();
 
@@ -199,7 +196,7 @@ function selectDisk(event) {
     if (!isDiskSelected) {
         console.log("!isDiskSelected");
         idDiskSelected = event.target.id;
-        diskSelected = document.querySelector(`#${idDiskSelected} `)
+        diskSelected = document.querySelector(`#${idDiskSelected}`)
         diskNumSelected = parseInt(event.target.id.substr(-1));
         //detect currentTower
         findCurrentTower();
@@ -245,10 +242,11 @@ function selectDisk(event) {
         //Activate background color of the selected block
         document.querySelector(`#${idDiskSelected} `).setAttribute('style', ' border-style: solid; border-color: white');
         isDiskSelected = true;
-    } else if (isDiskSelected) {
+    } else if (isDiskSelected && (indexA !== -1 || indexB !== -1 || indexC !== -1)) {
         //If currentTower && destTower are different && idDiskSelected ===true
-        console.log(`ELSE IF isDiskselected: + isDiskSelected currentTower: ${currentTower} destTower: ${destTower} `);
-        if ((currentTower !== destTower) && (isDiskSelected)) {
+    } else if (isDiskSelected && (indexA !== -1 || indexB !== -1 || indexC !== -1)) {
+        console.log(`ELSE IF isDiskselected: + isDiskSelected currentTower: ${currentTower} destTower: ${destTower}  indexA:${indexA}   indexB:${indexB}  indexC: ${indexC}`);
+        if (currentTower !== destTower) {
             //Move disk from origin tower to dest tower
             console.log(`prior to moveDisk...diskNumSelected ${diskNumSelected}`);
 
@@ -260,17 +258,16 @@ function selectDisk(event) {
                 moveDisk();
             }
         } else {
-            if (isDiskSelected) {
-                console.log("Select different tower to move disk selected");
-                message.innerHTML = "Select different tower to move disk selected";
-                alert("Select different tower to move disk selected");
-            } else {
-                console.log("select a disk");
-                message.innerHTML = "Select a disk";
-                alert("Select a disk");
-            }
+            console.log("Select different tower to move disk selected");
+            message.innerHTML = "Select different tower to move disk selected";
+            alert("Select different tower to move disk selected");
         }
-    } else {
+    }
+    //when user is not selecting a disk
+    else if (indexA === -1 && (indexA === indexB)(indexA === indexC)) {
+        console.log("selecting the same disk");
+    }
+    else if (!isDiskSelected) {
         message.innerHTML = "The disk you want to move is not the upper disk of the tower!";
         alert("The disk you want to move is not the upper disk of the tower!");
         console.log(`indexA: ${indexA}  indexB: ${indexB}  indexC: ${indexC}`);
@@ -333,12 +330,13 @@ console.log("prior to towersLabel");
 towersLabel.forEach(tower => {
     console.log("towersLabel");
     diskarray = document.querySelectorAll(`#disks-tower-${tower}`);
-    console.log(`forEach tower ${diskarray}`);
+    console.log(`forEach tower `);
+    console.log(diskarray);
     if (diskarray) {
-        console.log(`diskarray TRUE #disks - tower - ${tower}`);
+        console.log(`diskarray TRUE #disks-tower-${tower}`);
         diskarray.forEach(disk => {
             //disk selected
-            console.log(`disk selected-- > ${disk}`);
+            console.log(`disk selected-- > ${disk} isDiskSelected:${isDiskSelected}`);
             disk.addEventListener("click", selectDisk);
 
         });
