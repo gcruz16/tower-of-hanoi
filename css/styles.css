@@ -21,7 +21,7 @@ form {
 }
 #nav {
     font-size: 18px;
-    font-family: 'Acme';
+    font-family: 'Bungee Inline';
     border: 5px solid greenyellow;
     height: 600px;
     width:25%;
@@ -246,7 +246,7 @@ form {
 }
 #aside {
     font-size: 20px;
-    font-family: 'Acme';
+    font-family: 'Bungee Inline';
     border: 5px solid greenyellow;
     height: 600px;
     width:25%;
@@ -255,16 +255,66 @@ form {
     justify-content:center;
     align-self: center;
     align-content:center;
+
 }
 
 .game-board{
-
+    border: 5px solid black;
+    border-style: groove;
+    border-radius: 30px / 20px;
+   
+    display: flex;
+    flex-flow: row wrap;
+    align-content: center;
+    text-align: center;
+    justify-content: center;
+    position: relative;
+    bottom:40px;
 } 
+#gameBrdLbl{
+    /* border: 5px solid gray; */
+    width:90%;
+    font-size: 25px;
+    font-family: 'Bungee Inline';
+    display: flex;
+    align-content: center;
+    text-align: center;
+    justify-content: center;
+ 
+}
+.moves {
+    /* border: 5px solid black; */
+    height:30px;
+    width:35%;
+    font-size: 30px;
+}
+.score{
+    /* border: 5px solid white; */
+    height:30px;
+    width:35%;
+    font-size: 30px;
+
+}
+#moves{
+    border: 5px solid white;
+    border-style: groove;
+    border-radius: 10px / 20px;
+}
+#score{
+    border: 5px solid white;
+    border-style: groove;
+    border-radius: 10px / 20px;
+}
+img{
+    position: relative;
+    bottom:30px;
+}
 #instructions{
     font-size: 13px;
     font-family: 'Montserrat';
     display: flex;
     align-content: flex-start;
+
 
 }
 
