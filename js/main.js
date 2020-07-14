@@ -136,10 +136,58 @@ function detectLevel(event) {
 //     });
 
 // }
+function validateDiskSize() {
+    console.log(`**validMovement function**`);
+    let upperDiskTowerDest = 0;
+    divdisks = document.querySelectorAll(`#disks-tower-${destTower} .disk-item`);
+
+    //Tower with existing disks
+    if (divdisks.length > 0) {
+        upperDiskTowerDest = parseInt(divdisks[divdisks.length - 1].id);
+        //UpperDisk must be smaller than diskNumSelected
+        if (upperDiskTowerDest < diskNumSelected) {
+            console.log(`UpperDisk is smaller than diskNumSelected...upperDiskTowerDest:${upperDiskTowerDest}  diskNumSelected:${diskNumSelected}`);
+            console.log(divdisks[divdisks.length - 1].id);
+            return true;
+        } else {
+            // console.log(`UpperDisk is not smaller than diskNumSelected...upperDiskTowerDest:${upperDiskTowerDest}  diskNumSelected:${diskNumSelected}`);
+            message.innerHTML = `Upper disk of Tower:${destTower} is smaller than disk selected, you can move to a different tower.`;
+            return false;
+        }
+    } else {  //Tower without disks
+        console.log(`Tower without disks...destTower${destTower}`);
+        // console.log(divdisks);
+        return true;
+    }
+
+    return true;
+    // let upperDiskTowerDest = 0;
+    // if (divdisks) {
+    //     console.log(divdisks[divdisks.length - 1].id);
+    //     upperDiskTowerDest = parseInt((divdisks[divdisks.length - 1].id).substr(-1));
+    //     console.log(`upperDiskTowerDest:${upperDiskTowerDest}`);
+    //     console.log(`Lenght greater than 0...  upperDiskTowerDest:${upperDiskTowerDest}`);
+    //     return true;
+    // } else {
+    //     console.log("tower do not have disks");
+    //     return true;
+    // }
+
+
+
+    // console.log(`validMovement....upperDiskTowerDest: ${upperDiskTowerDest}`);
+    // if ((upperDiskTowerDest > diskNumSelected) || !diskarray) {
+    //     return true;
+    // } else {
+    //     return false;
+    // }
+
+
+}
 function findCurrentTower() {
     towersLabel.forEach(tower => {
         console.log("findCurrentTower");
-        diskarray = document.querySelectorAll(`#disks-tower-${tower}`);
+        diskarray = document.querySelectorAll(`#disks-tower-${tower} `);
         console.log(`forEach tower ${diskarray}`);
         if (diskarray) {
             diskarray.forEach(disk => {
@@ -213,7 +261,15 @@ function selectDisk(event) {
         if ((currentTower !== destTower) && (isDiskSelected)) {
             //Move disk from origin tower to dest tower
             console.log(`prior to moveDisk...diskNumSelected ${diskNumSelected}`);
-            moveDisk();
+
+            //ValidMovement functions determines if we can move a disk from one tower to another one 
+            //based on "No larger disk can be placed on top of a smaller disk"
+            console.log("prior to validMovement function");
+            if (validateDiskSize()) {
+                console.log("prior to move disk function");
+                moveDisk();
+            }
+
 
         }
     } else {
@@ -248,22 +304,6 @@ function moveDisk() {
     indexC = 0;
 }
 
-//console.log(event.target);
-// console.log(`tower selected: ${ towerSelected } disk selected: ${ diskSelected }`);
-// // let diskTop = document.querySelector("#disks-tower-a");
-// // console.log("diskTop" + diskTop.id);
-
-// moves++;
-// // while (diskSelected <= diskTop) {
-
-// // }
-
-// if(event.target)
-
-
-
-// }
-
 
 // function hanoi() {
 //     if (idDiskSelected > 0) {
@@ -294,10 +334,6 @@ towersLabel.forEach(tower => {
         });
     }
 });
-
-
-
-
 
 // // let disksArray = document.querySelectorAll(".disk-item");
 
