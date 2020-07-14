@@ -12,8 +12,8 @@ let scoreDisplay = document.querySelector("#score");
 //variables to reset
 let moves = 0;
 let score = 0;
-let level = "";
-let totNumDisks = 0;
+let level = "easy";
+let totNumDisks = 2;
 let maxNumDisks = 0;
 let towerA = [];
 let towerB = [];
@@ -34,8 +34,7 @@ let disks = "";
 // console.log(form1);
 //Function to reset variables
 function resetVariables() {
-    level = "easy";
-    totNumDisks = 2;
+
     maxNumDisks = 7;
     towerA = [maxNumDisks];
     towerB = [maxNumDisks];
@@ -57,13 +56,12 @@ function resetVariables() {
 
 //Function to create disks based on level
 function createDisk() {
-    console.log("createDisk function destTower: " + destTower);
     let newdisk = "";
     let disks = document.querySelector(`#disks-tower-${destTower}`);
     let totDisk = 1;
     let i = 0;
 
-    //console.log(`level: ${level} i: ${i} totNumDisks: ${totNumDisks} destTower:${destTower}  `);
+    console.log(`CreateDisk Function level: ${level} i: ${i} totNumDisks: ${totNumDisks} destTower:${destTower}  `);
     while (totDisk <= totNumDisks) {
         newdisk = document.createElement("div");
         newdisk.id = `disk${maxNumDisks}`;
@@ -143,7 +141,9 @@ class hanoi {
 };
 
 function detectLevel(event) {
-    event.preventDefault;
+    event.preventDefault();
+    console.log("detectLevel function");
+    console.log(event.target.value);
     level = event.target.value;
     loadDisks();
 
