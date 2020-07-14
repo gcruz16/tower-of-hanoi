@@ -86,7 +86,7 @@ function loadDisks() {
 
     }
 
-    createDisk(); //Tower a
+    createDisk(); //currentTower:a
     message.innerHTML = "Select a level and start playing, check rules prior to move the disks..";
 }
 
