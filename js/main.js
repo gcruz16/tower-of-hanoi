@@ -161,27 +161,6 @@ function validateDiskSize() {
     }
 
     return true;
-    // let upperDiskTowerDest = 0;
-    // if (divdisks) {
-    //     console.log(divdisks[divdisks.length - 1].id);
-    //     upperDiskTowerDest = parseInt((divdisks[divdisks.length - 1].id).substr(-1));
-    //     console.log(`upperDiskTowerDest:${upperDiskTowerDest}`);
-    //     console.log(`Lenght greater than 0...  upperDiskTowerDest:${upperDiskTowerDest}`);
-    //     return true;
-    // } else {
-    //     console.log("tower do not have disks");
-    //     return true;
-    // }
-
-
-
-    // console.log(`validMovement....upperDiskTowerDest: ${upperDiskTowerDest}`);
-    // if ((upperDiskTowerDest > diskNumSelected) || !diskarray) {
-    //     return true;
-    // } else {
-    //     return false;
-    // }
-
 
 }
 function findCurrentTower() {
