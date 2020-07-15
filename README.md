@@ -46,7 +46,7 @@ The initial state (a), an intermediate state (b), and the final state (c) for a 
 ## Installation Instructions / Getting Started
 * Web browser
 * Internet Connectivity
-* Go to the web page [Game](https://github.com/gcruz16/tower-of-hanoi) and start playing Tower of Hanoi game! 
+* Go to the web page [Game](https://gcruz16.github.io/tower-of-hanoi/) and start playing Tower of Hanoi game! 
 
 
 
