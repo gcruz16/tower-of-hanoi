@@ -51,7 +51,7 @@ function resetVariables() {
     //loadMode = true;
     idTower = 0;
     idDisk = 0;
-    towerDisks = [[], [], []];
+
 };
 
 
@@ -145,14 +145,17 @@ function loadDisks() {
         case "easy":
             diskLevel = 2;
             totNumDisks = 2;
+            towerDisks = [[], [], []];
             break;
         case "normal":
             diskLevel = 4;
             totNumDisks = 4;
+            towerDisks = [[], [], []];
             break;
         case "hard":
             diskLevel = 7;
             totNumDisks = 7;
+            towerDisks = [[], [], []];
             break;
 
     }
