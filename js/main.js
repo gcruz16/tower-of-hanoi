@@ -51,21 +51,10 @@ function resetVariables() {
     //loadMode = true;
     idTower = 0;
     idDisk = 0;
+    towerDisks = [[], [], []];
 };
 
-// function allowDrop(ev) {
-//     ev.preventDefault();
-// }
 
-// function drag(ev) {
-//     ev.dataTransfer.setData("text", ev.target.id);
-// }
-
-// function drop(ev) {
-//     ev.preventDefault();
-//     var data = ev.dataTransfer.getData("text");
-//     ev.target.appendChild(document.getElementById(data));
-// }
 //Function to create disks based on level
 function createDisk(event) {
     let newdisk = "";
@@ -80,6 +69,7 @@ function createDisk(event) {
     //else we assign idTower value based on destTower(a=0, b=1, c=2)
     if (loadMode) {
         idTower = 0;
+
     } else {
         switch (destTower) {
             case "a":
@@ -99,6 +89,7 @@ function createDisk(event) {
         }
     }
 
+    console.log(`idTower: ${idTower}  idDisk:${idDisk}`);
     while (totDisk <= totNumDisks) {
         newdisk = document.createElement("div");
         newdisk.id = `disk${maxNumDisks}`;
@@ -108,6 +99,7 @@ function createDisk(event) {
         disks.prepend(newdisk);
 
         //disksTowers[0][0] TowerA
+        console.log(`idTower: ${idTower}  idDisk:${idDisk} totDisk:${totDisk} totNumDisks:${totNumDisks}`)
         towerDisks[idTower][idDisk] = parseInt(newdisk.id.substr(-1));
         // console.log("create disk-->" + parseInt(newdisk.id.substr(-1)));
         maxNumDisks--;
@@ -188,7 +180,6 @@ function loadDisks() {
     });
 }
 
-
 function detectLevel(event) {
     event.preventDefault();
     // console.log("detectLevel function");
@@ -197,7 +188,6 @@ function detectLevel(event) {
     loadDisks();
 
 }
-
 
 function validateDiskSize() {
     console.log(`**validMovement function** destTower:${destTower}`);
@@ -227,7 +217,7 @@ function validateDiskSize() {
 }
 function findCurrentTower() {
     towersLabel.forEach(tower => {
-        console.log("findCurrentTower");
+        console.log("findCurrentTower...diskNumSelected:" + diskNumSelected);
         diskarray = document.querySelectorAll(`#disks-tower-${tower} `);
         console.log(`forEach tower ${diskarray}`);
         if (diskarray) {
@@ -263,8 +253,6 @@ function selectDisk(event) {
     //validate if is disk selected has valid size to move
     if (validateDiskSize()) {
         // if (!isDiskSelected) {
-
-
         //find index of diskNumSelected
         switch (currentTower) {
             case "a":
@@ -332,66 +320,64 @@ function moveDisk() {
             //ValidMovement functions determines if we can move a disk from one tower to another one 
             //based on "No larger disk can be placed on top of a smaller disk"
             console.log("prior to validMovement function");
-            //if (validateDiskSize()) {
-            console.log("prior to move disk function");
-            //moving disk
+            if (validateDiskSize()) {
+                console.log("prior to move disk function");
+                //moving disk
 
-            console.log("moving disk");
-            // //Remove disk selected from origin tower
-            maxNumDisks = diskNumSelected;
-            towerDisks[idTower].pop()
-            diskSelected.remove();
+                console.log("moving disk");
+                // //Remove disk selected from origin tower
+                maxNumDisks = diskNumSelected;
+                towerDisks[idTower].pop()
+                diskSelected.remove();
 
-            //Add child (disk selected) to destination tower selected, you can just move one disk at the time
-            totNumDisks = 1;
-            loadMode = false;
-            createDisk();
+                //Add child (disk selected) to destination tower selected, you can just move one disk at the time
+                totNumDisks = 1;
+                loadMode = false;
+                createDisk();
 
-            //reset variables
-            resetVariables();
-            moves++;
+                //reset variables
+                resetVariables();
+                moves++;
 
-            //Display moves in the game board
-            console.log(movesDisplay);
-            movesDisplay.innerHTML = moves;
+                //Display moves in the game board
+                console.log(movesDisplay);
+                movesDisplay.innerHTML = moves;
 
-            message.innerHTML = ` Disk moved successfully. Moves: ${moves}`;
+                message.innerHTML = ` Disk moved successfully. Moves: ${moves}`;
 
-            //select disks
-            disksItems = document.querySelectorAll(".disk-item");
-            disksItems.forEach(disk => {
-                //disk selected
-                console.log(`disk selected-- > ${disk} isDiskSelected:${isDiskSelected}`);
-                disk.addEventListener("click", selectDisk);
+                //select disks
+                disksItems = document.querySelectorAll(".disk-item");
+                disksItems.forEach(disk => {
+                    //disk selected
+                    console.log(`disk selected-- > ${disk} isDiskSelected:${isDiskSelected}`);
+                    disk.addEventListener("click", selectDisk);
 
-            });
+                });
 
-            //select tower
-            let towerList = document.querySelectorAll(".tower-item");
-            console.log("towerList--->");
-            console.log(towerList);
-            towerList.forEach(tower => {
-                tower.addEventListener("mouseover", tower.setAttribute("style", "border:2px solid green; "));
-                tower.addEventListener("click", moveDisk)
-                tower.addEventListener("mouseout", tower.setAttribute("style", "border:0px solid gray; "));
-            });
-            //Increment score if we won
-            console.log("prior to win function");
-            if (win()) {
-                score++;
-                scoreDisplay.innerHTML = score;
-                message.innerHTML = ` You won!!. Score: ${score}`;
+                //select tower
+                let towerList = document.querySelectorAll(".tower-item");
+                console.log("towerList--->");
+                console.log(towerList);
+                towerList.forEach(tower => {
+                    tower.addEventListener("click", moveDisk)
+
+                });
+                //Increment score if we won
+                console.log("prior to win function");
+                if (win()) {
+                    score++;
+                    scoreDisplay.innerHTML = score;
+                    message.innerHTML = ` You won!!. Score: ${score}`;
+
+                }
 
             }
-
-            //}
         } else {
             console.log("Select different tower to move disk selected");
             message.innerHTML = "Select different tower to move disk selected";
             alert("Select different tower to move disk selected");
         }
     }
-
 
 }
 
@@ -407,6 +393,7 @@ function resetGame() {
     scoreDisplay.innerHTML = score;
 
 }
+
 //load page
 window.addEventListener("load", loadDisks);
 
