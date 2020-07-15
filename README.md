@@ -14,6 +14,7 @@ Objective is to move the entire stack to another rod .
 * Only one disk can be moved at a time.
 * Each move consists of taking the upper disk from one of the stacks and placing it on top of another stack or on an empty rod.
 * No larger disk may be placed on top of a smaller disk.
+* If you cannot select a disk it means you can´t legally move it anywhere.
 
 ## Example
 
@@ -45,5 +46,8 @@ The initial state (a), an intermediate state (b), and the final state (c) for a 
 ## Installation Instructions / Getting Started
 * Web browser
 * Internet Connectivity
-* Go to the web page and start playing Tower of Hanoi game!
+* Go to the web page [Game](https://github.com/gcruz16/tower-of-hanoi) and start playing Tower of Hanoi game! 
+
+
+
 

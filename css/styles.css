@@ -86,8 +86,8 @@ form {
 }
 
 #message-item{
-    font-size: 20px;
-    font-family: "Sniglet";
+    font-size: 17px;
+    font-family: "McLaren";
     display: flex;
     align-content: center;
     justify-content: space-between;
@@ -153,7 +153,7 @@ form {
    align-content:center;
 }
  .disks{
-    border: 2px solid green; 
+    /* border: 2px solid green;  */
     height: 270px;
     width:70%;
     position: relative;
@@ -319,7 +319,7 @@ img{
 }
 #instructions{
     font-size: 16px;
-    font-family: "Sniglet";
+    font-family: "McLaren";
     display: flex;
     align-content: flex-start;
 
@@ -328,7 +328,7 @@ img{
 
 #footer {
     font-size: 22px;
-    font-family: "Do Hyeon";
+    font-family: "McLaren";
     border: 5px solid greenyellow;
     height: 200px;
     width:100%;
