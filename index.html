@@ -9,6 +9,8 @@
     <link href="https://fonts.googleapis.com/css2?family=Bungee+Inline&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Acme&family=Bungee+Inline&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Do+Hyeon&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Wendy+One&display=swap" rel="stylesheet">
 </head>
 
 <body>
@@ -32,7 +34,7 @@
 
         <main id="main">
             <div class="message"><strong>Message: </strong>
-                <textarea id="message-item" name="message" rows="4" cols="150"></textarea>
+                <textarea id="message-item" name="message" rows="3" cols="150"></textarea>
             </div>
             <div class="hanoi-towers">
                 <div id="disks-towers">
@@ -42,13 +44,13 @@
                         <div id="towerC" class="tower-item">C</div>
                     </div>
                     <disks id="div-disks">
-                        <div id="disks-tower-a" class="disks">
+                        <div id="disks-tower-a" class="disks diskSel">
 
                         </div>
-                        <div id="disks-tower-b" class="disks">
+                        <div id="disks-tower-b" class="disks diskSel">
 
                         </div>
-                        <div id="disks-tower-c" class="disks">
+                        <div id="disks-tower-c" class="disks diskSel">
 
                         </div>
 
@@ -72,21 +74,21 @@
                 <div id="scoreLabel" class="score">Score</div>
                 <div id="score" class="score"></div>
             </section>
-            <img src="img/Tower-of-hanoi.gif" alt="Tower of hanoi" width="350" height="130">
+            <img src="img/Tower-of-hanoi.gif" alt="Tower of hanoi" width="450" height="130">
             <div id="Rules"><b>Rules</b></div>
             <textarea id="instructions" name="instructions" rows="10" cols="50">
+
             * Only one disk can be moved at a time.
+
             * Each move consists of taking the upper disk from one of the stacks and placing it on top of another stack or on an
             empty rod.
+
             * No larger disk may be placed on top of a smaller disk.
               </textarea>
         </aside>
-        <footer id="footer">footer</footer>
+        <footer id="footer">Gladys Cruz</footer>
         <script src="js/main.js"></script>
     </form>
 </body>
-<!-- <div id="disk1" class="disk-item"></div>
-                                                        <div id="disk2" class="disk-item"></div>
-                                                        <div id="disk3" class="disk-item"></div> -->
 
 </html>
