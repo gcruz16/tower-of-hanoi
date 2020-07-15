@@ -87,7 +87,7 @@ form {
 
 #message-item{
     font-size: 20px;
-    font-family: "Wendy One";
+    font-family: "Sniglet";
     display: flex;
     align-content: center;
     justify-content: space-between;
@@ -130,7 +130,7 @@ form {
     background-color:#e2ddd9;
     position: relative;
     bottom:100px;
-    left:30px;
+    left:35px; 
     height: 360px;
     width:11px;
     border-radius: 15px;
@@ -163,12 +163,17 @@ form {
     justify-content: flex-end;
     align-content: center; /*modify when moving disks between rods */
     text-align: center;
+    align-items: center;
     
 }
 
 .disk-item{
     position: relative;
     height: 35px;
+    display:flex;
+    justify-content: space-around;
+    align-content: center; /*modify when moving disks between rods */
+    text-align: center;
     /* border-style: outset; */
 
 }
@@ -197,47 +202,47 @@ form {
 #disk1{
     width: 30px;
     background-color:red;
-    position: relative;
-    left: 120px;
+    /* position: relative;
+    left: 120px; */
     border-radius: 60px / 30px;
 }
 #disk2{
     width: 70px;
     background-color:yellow;
-    position: relative;
-    left: 100px;
+    /* position: relative;
+    left: 100px; */
     border-radius: 80px / 25px;
 
 }
 #disk3{
     width: 110px;
     background-color:lawngreen;
-    position: relative;
-    left: 80px;
+    /* position: relative;
+    left: 80px; */
     border-radius: 190px / 30px;
 
 }
 #disk4{
     width: 150px;
     background-color:coral;
-    position: relative;
-    left: 60px;
+    /* position: relative;
+    left: 60px; */
     border-radius: 450px / 45px;
 
 }
 #disk5{
     width: 190px;
     background-color:cyan;
-    position: relative;
-    left: 40px;
+    /* position: relative;
+    left: 40px; */
     border-radius: 590px / 45px;
 
 }
 #disk6{
     width: 230px;
     background-color:blue;
-    position: relative;
-    left: 20px;
+    /* position: relative;
+    left: 20px; */
     border-radius: 750px / 50px;
 
 }
@@ -314,7 +319,7 @@ img{
 }
 #instructions{
     font-size: 16px;
-    font-family: "Wendy One";
+    font-family: "Sniglet";
     display: flex;
     align-content: flex-start;
 

@@ -249,53 +249,53 @@ function selectDisk(event) {
     console.log(`selectDisk function isDiskSelected: ${isDiskSelected} ...event.target.id: `);
     console.log(`${event.target.id} `);
     message.innerHTML = "You have selected a disk (white border), please select top of a Tower to move the disk";
-    if (!isDiskSelected) {
-        console.log("!isDiskSelected");
-        idDiskSelected = event.target.id;
-        diskSelected = document.querySelector(`#${idDiskSelected}`)
-        diskNumSelected = parseInt(event.target.id.substr(-1));
-        //detect currentTower
-        findCurrentTower();
+    // if (!isDiskSelected) {
+    console.log("!isDiskSelected");
+    idDiskSelected = event.target.id;
+    diskSelected = document.querySelector(`#${idDiskSelected}`)
+    diskNumSelected = parseInt(event.target.id.substr(-1));
+    //detect currentTower
+    findCurrentTower();
 
-        //find index of diskNumSelected
-        switch (currentTower) {
-            case "a":
-                indexA = towerDisks[0].indexOf(diskNumSelected);
-                indexB = -1;
-                indexC = -1;
-                break;
-            case "b":
-                indexB = towerDisks[1].indexOf(diskNumSelected);
-                indexA = -1;
-                indexC = -1;
-                break;
-            case "c":
-                indexC = towerDisks[2].indexOf(diskNumSelected);
-                indexA = -1;
-                indexB = -1;
-                break;
+    //find index of diskNumSelected
+    switch (currentTower) {
+        case "a":
+            indexA = towerDisks[0].indexOf(diskNumSelected);
+            indexB = -1;
+            indexC = -1;
+            break;
+        case "b":
+            indexB = towerDisks[1].indexOf(diskNumSelected);
+            indexA = -1;
+            indexC = -1;
+            break;
+        case "c":
+            indexC = towerDisks[2].indexOf(diskNumSelected);
+            indexA = -1;
+            indexB = -1;
+            break;
 
-        }
-        //disks = document.querySelectorAll("#disks-tower-b");
-        console.log(`PRIOR TO IF isDiskSelected: ${isDiskSelected} currentTower: ${currentTower} destTower: ${destTower} diskNumSelected: ${diskNumSelected} idDiskSelected: ${idDiskSelected} diskSelected: ${diskSelected} diskNumSelected: ${diskNumSelected} `);
-
-        //console.log(`indexA: ${ indexA } indexB: ${ indexB } indexC: ${ indexC } `);
-        //Validate tower of disk selected and validate we are selecting upper disk from the tower, make sure we do not have a disk already selected
-        if ((((indexA !== -1) && (towerDisks[0][towerDisks[0].length - 1] === towerDisks[0][indexA])) ||
-            ((indexB !== -1) && (towerDisks[1][towerDisks[1].length - 1] === towerDisks[1][indexB])) ||
-            ((indexC !== -1) && (towerDisks[2][towerDisks[2].length - 1] === towerDisks[2][indexC]))) && !isDiskSelected) {
-            console.log(`IF Upper Disk: ${towerDisks[0][towerDisks[0].length - 1]} Disk selected: ${towerDisks[0][indexA]} `);
-
-            //Activate background color of the selected block
-            document.querySelector(`#${idDiskSelected} `).setAttribute("style", " border: 3px solid white");
-            isDiskSelected = true;
-        } else {
-            message.innerHTML = "The disk you want to move is not the upper disk of the tower!";
-            alert("The disk you want to move is not the upper disk of the tower!");
-            console.log(`indexA: ${indexA}  indexB: ${indexB}  indexC: ${indexC}`);
-            isDiskSelected = false;
-        }
     }
+    //disks = document.querySelectorAll("#disks-tower-b");
+    console.log(`PRIOR TO IF isDiskSelected: ${isDiskSelected} currentTower: ${currentTower} destTower: ${destTower} diskNumSelected: ${diskNumSelected} idDiskSelected: ${idDiskSelected} diskSelected: ${diskSelected} diskNumSelected: ${diskNumSelected} `);
+
+    //console.log(`indexA: ${ indexA } indexB: ${ indexB } indexC: ${ indexC } `);
+    //Validate tower of disk selected and validate we are selecting upper disk from the tower, make sure we do not have a disk already selected
+    if ((((indexA !== -1) && (towerDisks[0][towerDisks[0].length - 1] === towerDisks[0][indexA])) ||
+        ((indexB !== -1) && (towerDisks[1][towerDisks[1].length - 1] === towerDisks[1][indexB])) ||
+        ((indexC !== -1) && (towerDisks[2][towerDisks[2].length - 1] === towerDisks[2][indexC]))) && !isDiskSelected) {
+        console.log(`IF Upper Disk: ${towerDisks[0][towerDisks[0].length - 1]} Disk selected: ${towerDisks[0][indexA]} `);
+
+        //Activate background color of the selected block
+        document.querySelector(`#${idDiskSelected} `).setAttribute("style", " border: 3px solid white");
+        isDiskSelected = true;
+    } else {
+        message.innerHTML = "The disk you want to move is not the upper disk of the tower!";
+        alert("The disk you want to move is not the upper disk of the tower!");
+        console.log(`indexA: ${indexA}  indexB: ${indexB}  indexC: ${indexC}`);
+        isDiskSelected = false;
+    }
+    // }
 };
 
 function moveDisk() {
