@@ -1,88 +1,104 @@
 <!DOCTYPE html>
 <html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Document</title>
+		<link rel="stylesheet" href="css/styles.css" />
+		<link
+			href="https://fonts.googleapis.com/css2?family=Bungee+Inline&display=swap"
+			rel="stylesheet"
+		/>
+		<link
+			href="https://fonts.googleapis.com/css2?family=Acme&family=Bungee+Inline&display=swap"
+			rel="stylesheet"
+		/>
+		<link
+			href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100&display=swap"
+			rel="stylesheet"
+		/>
+		<link
+			href="https://fonts.googleapis.com/css2?family=Do+Hyeon&display=swap"
+			rel="stylesheet"
+		/>
+		<link
+			href="https://fonts.googleapis.com/css2?family=Wendy+One&display=swap"
+			rel="stylesheet"
+		/>
+		<link
+			href="https://fonts.googleapis.com/css2?family=Sniglet:wght@400;800&family=Wendy+One&display=swap"
+			rel="stylesheet"
+		/>
+		<link
+			href="https://fonts.googleapis.com/css2?family=McLaren&display=swap"
+			rel="stylesheet"
+		/>
+	</head>
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <link rel="stylesheet" href="css/styles.css">
-    <link href="https://fonts.googleapis.com/css2?family=Bungee+Inline&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Acme&family=Bungee+Inline&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Do+Hyeon&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Wendy+One&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Sniglet:wght@400;800&family=Wendy+One&display=swap"
-        rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=McLaren&display=swap" rel="stylesheet">
+	<body>
+		<header>
+			<h1 id="header">Tower of Hanoi</h1>
+		</header>
+		<form id="mainForm">
+			<nav id="nav">
+				<section>
+					<label id="Level">Choose a level:</label>
+					<select id="levels" name="levels">
+						<option value="easy">Easy</option>
+						<option value="normal">Normal</option>
+						<option value="hard">Hard</option>
+					</select>
+				</section>
+				<!-- <input id="start-button" type="button" value="Start game"> -->
+				<input id="reset-button" type="submit" value="Reset game" />
+			</nav>
 
-</head>
-
-<body>
-
-    <header>
-        <h1 id="header">Tower of Hanoi</h1>
-    </header>
-    <form id="mainForm">
-        <nav id="nav">
-            <section>
-                <label id="Level">Choose a level:</label>
-                <select id="levels" name="levels">
-                    <option value="easy">Easy</option>
-                    <option value="normal">Normal</option>
-                    <option value="hard">Hard</option>
-                </select>
-            </section>
-            <!-- <input id="start-button" type="button" value="Start game"> -->
-            <input id="reset-button" type="submit" value="Reset game">
-
-
-        </nav>
-
-        <main id="main">
-            <div class="message"><strong>Message: </strong>
-                <textarea id="message-item" name="message" rows="3" cols="150"></textarea>
-            </div>
-            <div class="hanoi-towers">
-                <div id="disks-towers">
-                    <div id="towers">
-                        <div id="towerA" class="tower-item">A</div>
-                        <div id="towerB" class="tower-item">B</div>
-                        <div id="towerC" class="tower-item">C</div>
-                    </div>
-                    <disks id="div-disks">
-                        <div id="disks-tower-a" class="disks">
-
-                        </div>
-                        <div id="disks-tower-b" class="disks">
-
-                        </div>
-                        <div id="disks-tower-c" class="disks">
-
-                        </div>
-
-                    </disks>
-
-                </div>
-                <div id="base">
-                    <div class="base-item"></div>
-                    <div class="base-item"></div>
-                    <div class="base-item"></div>
-                </div>
-
-
-            </div>
-        </main>
-        <aside id="aside">
-            <section class="game-board">
-                <div id="gameBrdLbl">Game Board</div>
-                <div id="movesLabel" class="moves">Moves</div>
-                <div id="moves" class="moves"></div>
-                <div id="scoreLabel" class="score">Score</div>
-                <div id="score" class="score"></div>
-            </section>
-            <img src="img/Tower-of-hanoi.gif" alt="Tower of hanoi" width="450" height="130">
-            <div id="Rules"><b>Rules</b></div>
-            <textarea id="instructions" name="instructions" rows="10" cols="50">
+			<main id="main">
+				<div class="message">
+					<strong>Message: </strong>
+					<textarea
+						id="message-item"
+						name="message"
+						rows="3"
+						cols="150"
+					></textarea>
+				</div>
+				<div class="hanoi-towers">
+					<div id="disks-towers">
+						<div id="towers">
+							<div id="towerA" class="tower-item">A</div>
+							<div id="towerB" class="tower-item">B</div>
+							<div id="towerC" class="tower-item">C</div>
+						</div>
+						<disks id="div-disks">
+							<div id="disks-tower-a" class="disks"></div>
+							<div id="disks-tower-b" class="disks"></div>
+							<div id="disks-tower-c" class="disks"></div>
+						</disks>
+					</div>
+					<div id="base">
+						<div class="base-item"></div>
+						<div class="base-item"></div>
+						<div class="base-item"></div>
+					</div>
+				</div>
+			</main>
+			<aside id="aside">
+				<section class="game-board">
+					<div id="gameBrdLbl">Game Board</div>
+					<div id="movesLabel" class="moves">Moves</div>
+					<div id="moves" class="moves"></div>
+					<div id="scoreLabel" class="score">Score</div>
+					<div id="score" class="score"></div>
+				</section>
+				<img
+					src="img/Tower-of-hanoi.gif"
+					alt="Tower of hanoi"
+					width="300"
+					height="130"
+				/>
+				<div id="Rules"><b>Rules</b></div>
+				<textarea id="instructions" name="instructions" rows="10" cols="35">
 
             * Only one disk can be moved at a time.
 
@@ -93,11 +109,11 @@
             * No larger disk may be placed on top of a smaller disk.
 
             * Game shows moves in the game board, each moves consists of taking upper disk of a stack and placing it in another stack.
-              </textarea>
-        </aside>
-        <footer id="footer">@GladysCruz</footer>
-        <script src="js/main.js"></script>
-    </form>
-</body>
-
+              </textarea
+				>
+			</aside>
+			<footer id="footer">@GladysCruz</footer>
+			<script src="js/main.js"></script>
+		</form>
+	</body>
 </html>
