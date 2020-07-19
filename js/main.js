@@ -304,8 +304,18 @@ function selectDisk(event) {
 				towerDisks[2][towerDisks[2].length - 1] === towerDisks[2][indexC])
 		) {
 			//Activate background color of the selected block
-			oldDiskSelected = document.querySelector(`#${idDiskSelected} `);
-			oldDiskSelected.setAttribute("style", " border: 3px solid white");
+			divDisks = document.querySelectorAll(".disk-item");
+
+			//remove border of disks
+			if (divDisks) {
+				divDisks.forEach((diskItem) => {
+					diskItem.setAttribute("style", " border: 0px");
+				});
+			}
+
+			document
+				.querySelector(`#${idDiskSelected} `)
+				.setAttribute("style", " border: 3px solid white");
 			message.innerHTML =
 				"You have selected a disk (white border), please select top of a Tower to move the disk";
 			isDiskSelected = true;
